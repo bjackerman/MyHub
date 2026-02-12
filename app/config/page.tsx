@@ -128,7 +128,10 @@ export default function ConfigEditorPage() {
         <header className="flex flex-col gap-2">
           <h1 className="text-3xl font-bold">YAML Layout Config Editor</h1>
           <p className="text-[#9db0b9]">
-            Edit your layout/setup YAML, validate before save, and rollback to prior versions.
+            Edit your dashboard schema YAML (including widget layout), validate before save, and rollback to prior versions.
+          </p>
+          <p className="text-xs text-[#9db0b9]">
+            Supported widget types: notes, bookmarks, tasks, ai, calendar, clock, weather.
           </p>
           <p className="text-sm text-primary">Status: {status}</p>
         </header>
