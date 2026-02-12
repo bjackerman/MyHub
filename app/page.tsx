@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import DashboardWidget from "@/components/DashboardWidget";
 import NotesWidget from "@/components/widgets/NotesWidget";
@@ -159,12 +160,6 @@ export default function Home() {
             <p className="text-[#9db0b9] text-sm">
               Drag widgets to rearrange. Unlock specific widgets to move/resize them.
             </p>
-            <Link
-              href="/config"
-              className="inline-flex mt-2 text-xs px-2 py-1 rounded bg-primary/20 text-primary hover:bg-primary/30"
-            >
-              Open YAML Config Editor
-            </Link>
           </div>
           <div className="flex items-center gap-2 text-[#9db0b9] text-sm">
             <span className={`w-2 h-2 rounded-full ${saveStatus === "Saved" ? "bg-green-500" : "bg-yellow-500 animate-pulse"}`}></span>
