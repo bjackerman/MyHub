@@ -6,6 +6,7 @@ A highly customizable, interactive personal dashboard built with Next.js 16 and 
 
 - **Draggable & Resizable Widgets:** Organize your workspace exactly how you want it.
 - **State Persistence:** Your layout and widget positions are automatically saved to `localStorage`.
+- **YAML Config Validation:** Built-in schema checks for top-level config sections and `layout.widgets` definitions (type, size, position, and unique IDs).
 - **Integrated Widgets:**
   - **Notes:** Quick scratchpad for ideas and lists.
   - **Tasks:** Simple to-do list with completion toggles.
@@ -76,6 +77,23 @@ Check for code quality and style issues:
 ```bash
 npm run lint
 ```
+
+## YAML Config Schema
+
+The `/config` editor expects the YAML document to include these top-level sections:
+
+- `version` (number)
+- `site` (object)
+- `layout` (object)
+- `setup` (object)
+
+`layout.widgets` must be a list of widget objects with this required shape:
+
+- `id` (unique string)
+- `title` (string)
+- `type` (`notes | bookmarks | tasks | ai | calendar | clock | weather`)
+- `x`, `y`, `width`, `height` (numbers)
+- `isLocked` (optional boolean)
 
 ## Visual Verification
 
