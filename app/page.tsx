@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import DashboardWidget from "@/components/DashboardWidget";
 
@@ -22,6 +23,12 @@ export default function Home() {
             <p className="text-[#9db0b9] text-sm">
               Drag widgets to rearrange. Resize using the bottom-right corner.
             </p>
+            <Link
+              href="/config"
+              className="inline-flex mt-2 text-xs px-2 py-1 rounded bg-primary/20 text-primary hover:bg-primary/30"
+            >
+              Open YAML Config Editor
+            </Link>
           </div>
           <div className="flex items-center gap-2 text-[#9db0b9] text-sm">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
