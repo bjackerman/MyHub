@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## YAML layout/setup config editor
+
+This project now includes a starter YAML configuration workflow:
+
+- Edit config at `/config`
+- Validate via `POST /api/config/validate`
+- Save versioned config via `POST /api/config/save`
+- View history via `GET /api/config/history`
+- Roll back via `POST /api/config/rollback/:version`
+
+Config files are persisted under `data/` (`layout-config.yaml` and `layout-config-history.json`).
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
