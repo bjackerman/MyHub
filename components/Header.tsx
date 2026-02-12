@@ -4,9 +4,17 @@ interface HeaderProps {
   mode: "edit" | "view";
   onAddWidget?: () => void;
   onDone?: () => void;
+  isLocked?: boolean;
+  onToggleLock?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ mode, onAddWidget, onDone }) => {
+const Header: React.FC<HeaderProps> = ({
+  mode,
+  onAddWidget,
+  onDone,
+  isLocked,
+  onToggleLock,
+}) => {
   const isEditMode = mode === "edit";
 
   return (
@@ -81,6 +89,21 @@ const Header: React.FC<HeaderProps> = ({ mode, onAddWidget, onDone }) => {
         <div className="flex gap-2">
           {isEditMode ? (
             <>
+              <button
+                onClick={onToggleLock}
+                className={`flex items-center gap-2 cursor-pointer rounded-lg h-9 px-4 transition-colors text-sm font-bold ${
+                  isLocked
+                    ? "bg-orange-500/20 text-orange-500 hover:bg-orange-500/30"
+                    : "bg-surface-border text-white hover:bg-[#3b4b54]"
+                }`}
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  {isLocked ? "lock" : "lock_open"}
+                </span>
+                <span className="hidden sm:inline">
+                  {isLocked ? "Locked" : "Unlock"}
+                </span>
+              </button>
               <button
                 onClick={onAddWidget}
                 className="flex items-center gap-2 cursor-pointer rounded-lg h-9 px-4 bg-primary hover:bg-sky-500 text-white text-sm font-bold transition-colors"

@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MyHub - Personal Web Dashboard
+
+A highly customizable, interactive personal dashboard built with Next.js 16 and Tailwind CSS 4. Features a drag-and-drop widget system with state persistence and various productivity tools.
+
+## Features
+
+- **Draggable & Resizable Widgets:** Organize your workspace exactly how you want it.
+- **State Persistence:** Your layout and widget positions are automatically saved to `localStorage`.
+- **Integrated Widgets:**
+  - **Notes:** Quick scratchpad for ideas and lists.
+  - **Tasks:** Simple to-do list with completion toggles.
+  - **AI Assistant:** Simulated AI chat interface for analysis and drafting.
+  - **Clock & Calendar:** Real-time time display and monthly schedule.
+  - **Weather:** Current conditions and 3-day forecast (mock data).
+  - **Bookmarks:** Quick access to your favorite sites.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- **Node.js:** Version 18.x or higher.
+- **npm / yarn / pnpm:** Package manager of your choice.
+- **Python 3.x:** (Optional) Required for running the visual verification scripts.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd MyHub
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Setup Python environment (for verification):**
+    ```bash
+    pip install playwright
+    playwright install chromium
+    ```
+
+## Development and Building
+
+### Run the Development Server
+
+Start the interactive development environment:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Generate an optimized production build:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Run Production Server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+After building, you can start the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+### Linting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check for code quality and style issues:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+```
+
+## Visual Verification
+
+The project includes a Playwright-based Python script to capture screenshots of the dashboard for visual testing and documentation.
+
+**Ensure the development server is running on `localhost:3000` before executing:**
+
+```bash
+python verify_dashboard.py
+```
+
+This will generate:
+- `verification_dashboard.png`: Screenshot of the main dashboard.
+- `verification_library.png`: Screenshot of the widget library page.
+
+## Project Structure
+
+- `app/`: Next.js App Router pages and layouts.
+- `components/`: Reusable React components.
+  - `widgets/`: Individual widget implementations.
+- `public/`: Static assets and icons.
+- `verify_dashboard.py`: Automation script for visual verification.
+- `GEMINI.md`: Instructional context for AI agents.
+
+## License
+
+[MIT](LICENSE)
